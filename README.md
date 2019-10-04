@@ -13,7 +13,8 @@ Use this section to describe your final project and perhaps any links to relevan
 
 ## Wireframes
 https://imgur.com/a/5pgiMah
-https://imgur.com/a/3kPtZVZ 
+https://imgur.com/a/3kPtZVZ
+https://imgur.com/a/cAuiuOa
 ## API
 
 Api will be composed of several parts.
