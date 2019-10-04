@@ -19,7 +19,7 @@ https://imgur.com/a/cAuiuOa
 
 Api will be composed of several parts.
 1. 1st part is storing information for both created and returning users. (User_Acc)
-2. 2nd part is storing charactor data for each of their created characters. (Player_Info)
+2. 2nd part is storing character data for each of their created characters. (Player_Info)
 3. Inventory of items that will be used throughout the game. (Inventory)
 
 ### MVP/PostMVP - 5min
@@ -56,9 +56,10 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | --- | :---: |  :---: | :---: | :---: |
 | Creating Database | M | 3hrs| hrs | hrs |
 | Create a working login/register | H | 6hrs| hrs | hrs |
+| Create a image assets | H | 6hrs| hrs | hrs |
 | Create Character Customization Page | M | 3hrs| hrs | hrs |
 | Styling | L | 5hrs| hrs | hrs |
-| Total | H | 17hrs| hrs | hrs |
+| Total | H | 23hrs| hrs | hrs |
 
 ## Additional Libraries
 React

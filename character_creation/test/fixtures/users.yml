@@ -4,8 +4,10 @@ one:
   username: MyString
   email: MyString
   password: MyString
+  characters: one
 
 two:
   username: MyString
   email: MyString
   password: MyString
+  characters: two
