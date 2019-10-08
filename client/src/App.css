@@ -1,4 +1,9 @@
-.App {
+* {
+  background-color: maroon;
+}
+
+
+/* .App {
   text-align: center;
 }
 
@@ -19,4 +24,4 @@
 
 .App-link {
   color: #09d3ac;
-}
+} */

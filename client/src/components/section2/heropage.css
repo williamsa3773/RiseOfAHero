@@ -1,0 +1,15 @@
+.container {
+  display: grid;
+  grid-template-columns: 35% 65% ;
+  grid-template-rows: 100vh;
+}
+
+ .right-panel {
+   grid-column: 2/3;
+   grid-row: 1/2;
+ }
+
+ .left-panel {
+   grid-column: 1/2;
+   grid-row: 1/2
+ }

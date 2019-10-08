@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show update destroy]
   before_action :authorize_request, except: :create
+  before_action :set_user, only: [:show, :update, :destory]
 
   # GET /users
   def index
@@ -11,6 +11,8 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @user = User.find(params[:id])
+
     render json: @user
   end
 
@@ -30,7 +32,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       render json: @user
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: @user.errors, status: :unpro8cessable_entity
     end
   end
 

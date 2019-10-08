@@ -1,39 +1,26 @@
-import React, {useEffect, useState } from 'react'
-import { loginUser } from '../../services/api-helper.js'
-
-class Login extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      user: {
-        username: '',
-        password: ''
-      }
-    }
-  }
-  render() {
-    return (
-      <div className='UserLogin'>
-        <div className='Heading'>
-          <h1>Login</h1>
-        </div>
-        <form>
-          <input
-          placeholder='username'
-          type='text'
-          />
-          <input
-          placeholder='password'
-          type='text'
-          />
-          <input
-          type='submit'
-          value='Login'
-          />
-        </form>
+import React from 'react'
+import { Link } from 'react-router-dom'
+const Login = (props) => {
+  return (
+    <div className='UserLogin'>
+      <div className='Heading'>
+        <h1>Login</h1>
       </div>
-    )
-  }
+      <form
+      onSubmit={(e) => {
+        e.preventDefault()
+        props.handleLogin()}}
+        >
+        <input name='username' type='text' placeholder='USERNAME' value={props.formData.username} onChange={props.handleChange} />
+        <input name='password' type='text' placeholder='PASSWORD' value={props.formData.password} onChange={props.handleChange} />
+        <button>LOGIN</button>
+      </form>
+      <p>Need an Account?</p>
+      <Link to='/register'>
+        <button>Create Account</button>
+      </Link>
+    </div>
+  )
 }
 
-export default Login;
+export default Login

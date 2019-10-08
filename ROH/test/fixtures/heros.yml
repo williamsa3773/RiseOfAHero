@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  images: 
+  level: 1
+  exp: 1
+  str: 
+  dex: 1
+  kno: 1
+  cha: 1
+  vit: 1
+  def: 1
+
+two:
+  images: 
+  level: 1
+  exp: 1
+  str: 
+  dex: 1
+  kno: 1
+  cha: 1
+  vit: 1
+  def: 1

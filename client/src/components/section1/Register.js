@@ -1,35 +1,30 @@
-import React, {useEffect, useState } from 'react'
-import { loginUser } from '../../services/api-helper.js'
-
-const Register = () => {
-  const [currentUser, setCurrentUser] = useState([]);
-
+import React from 'react'
+import { Link  } from 'react-router-dom'
+const Register = (props) => {
   return (
-    <div className='UserLogin'>
+    <div className='UserRegister'>
       <div className='Heading'>
         <h1>Register</h1>
       </div>
-      <form>
+      <form onSubmit={props.handleRegister}>
         <input
-        placeholder='username'
-        type='text'
+        name='username' type='text' placeholder='USERNAME' value={props.formData.username} onChange={props.handleChange}
+        />
+        <input name='email' type='text' placeholder='EMAIL' value={props.formData.email} onChange={props.handleChange}
         />
         <input
-        placeholder='email'
-        type='text'
+        name='password' type='text' placeholder='PASSWORD' value={props.formData.password} onChange={props.handleChange}
         />
-        <input
-        placeholder='password'
-        type='text'
-        />
-        <input
-        type='submit'
-        value='Login'
-        />
+        <Link to='/hero'>
+          <button>REGISTER</button>
+        </Link>
       </form>
+      <p>Already have an account?</p>
+      <Link to='/login'>
+        <button>LOGIN!!</button>
+      </Link>
     </div>
   )
-
 }
 
-export default Register;
+export default Register
