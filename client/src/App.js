@@ -20,10 +20,12 @@ const App = (props) => {
   });
 
   useEffect(()=> {
-    const user = verifyUser();
-    if (user) {
-      setCurrentUser(user)
-    }
+    (async () => {
+      const user = await verifyUser();
+      if (user) {
+        setCurrentUser(user)
+      }
+    })()
   }, [])
 
   const handleLoginButton = () => {
@@ -33,6 +35,7 @@ const App = (props) => {
   const handleLogin = async () => {
     const userData = await loginUser(authFormData)
     setCurrentUser(userData)
+    props.history.push('/hero')
   }
 
   const handleRegister = async (e) => {
