@@ -8,9 +8,41 @@ class User < ApplicationRecord
 
   has_many :heros
 
-  def gen_hero
+  def gen_hero1
     Hero.create!(
-      name: "noob",
+      name: "noob1",
+      level: 1,
+      exp: 0,
+      str: 1,
+      dex: 1,
+      kno: 1,
+      cha: 1,
+      vit: 1,
+      def: 1,
+      user: self,
+      skill_point: 5,
+    )
+  end
+
+  def gen_hero2
+    Hero.create!(
+      name: "noob2",
+      level: 1,
+      exp: 0,
+      str: 1,
+      dex: 1,
+      kno: 1,
+      cha: 1,
+      vit: 1,
+      def: 1,
+      user: self,
+      skill_point: 5,
+    )
+  end
+
+  def gen_hero3
+    Hero.create!(
+      name: "noob3",
       level: 1,
       exp: 0,
       str: 1,

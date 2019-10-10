@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter, Link, Route, Switch, Redirect } from 'react-router-dom';
-import { loginUser, registerUser, verifyUser} from './services/api-helper'
+import { loginUser, registerUser, verifyUser} from './services/login-helper'
 import Login from './components/section1/Login'
 import Register from './components/section1/Register'
 import HeroPage from './components/section2/HeroPage'
 import './App.css';
-// const App = () => {
-//   const [login, setLogin] = useState({})
-//   const [register, setRegister] = useState({})
-
 
 const App = (props) => {
 
@@ -27,10 +23,6 @@ const App = (props) => {
       }
     })()
   }, [])
-
-  const handleLoginButton = () => {
-    props.history.push("/login")
-  }
 
   const handleLogin = async () => {
     const userData = await loginUser(authFormData)
@@ -76,6 +68,8 @@ const App = (props) => {
         )} />
         <Route path='/hero' render={() => (
           <HeroPage
+          handleLogout={handleLogout}
+          currentUser={currentUser}
           />
         )} />
         <Redirect from="/" to="/login" />

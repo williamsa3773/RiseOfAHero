@@ -1,30 +1,40 @@
 import React from 'react'
 import loadahero from './loadahero.css'
 
-const LoadAHero = () => {
+const LoadAHero = (props) => {
   return (
     <>
-      <div className='load'>
-        <h1 className='name'>Name</h1>
-        <div className='display'>
+      <form>
+        <div className='load'>
+          <h1 className='name'>{props.currentHero.name}</h1>
+          <div className='stats'>
+            <p className='level'>Lvl: {props.currentHero.level}</p>
+            <p className='exp'> {props.currentHero.exp} :Exp</p>
+          </div>
+          <div className='display'>
+          </div>
+          <div className='gear'>
+            <h1 className='weapon'>Weapon:</h1>
+            <h1 className='armor'>:Armor</h1>
+          </div>
+          <p className='points'>Remaing points: {props.currentHero.skill_point}</p>
+          <div className='skill-point'>
+            <div className='left-side'>
+              <p>Vit: {props.currentHero.vit}</p><button>+1</button><button>-1</button>
+              <p>Def: {props.currentHero.def}</p><button>+1</button><button>-1</button>
+              <p>Cha: {props.currentHero.cha}</p><button>+1</button><button>-1</button>
+            </div>
+            <div className='right-side'>
+              <p>{props.currentHero.str} :Str</p><button>+1</button><button>-1</button>
+              <p>{props.currentHero.dex} :Dex</p><button>+1</button><button>-1</button>
+              <p>{props.currentHero.kno} :Kno</p><button>+1</button><button>-1</button>
+            </div>
+          </div>
+          <div className='update'>
+            <button>Save</button>
+          </div>
         </div>
-        <h1 className='weapon'>Weapon:</h1>
-        <h1 className='armor'>Armor:</h1>
-          <p className='points'>Remaing points:</p>
-        <div className='left-side'>
-          <p>Vit:</p><button>+1</button><button>-1</button>
-          <p>Def:</p><button>+1</button><button>-1</button>
-          <p>Cha:</p><button>+1</button><button>-1</button>
-        </div>
-        <div className='right-side'>
-          <p>Str:</p><button>+1</button><button>-1</button>
-          <p>Dex:</p><button>+1</button><button>-1</button>
-          <p>Kno:</p><button>+1</button><button>-1</button>
-        </div>
-        <button className='update'>EDIT</button>
-        <button className='enter'>Enter Arena</button>
-        <button className='delete'>Delete</button>
-      </div>
+      </form>
     </>
   )
 }

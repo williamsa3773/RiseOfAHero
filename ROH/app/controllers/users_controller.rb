@@ -21,7 +21,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      @user.gen_hero
+      @user.gen_hero1
+      @user.gen_hero2
+      @user.gen_hero3
       render json: @user, status: :created, location: @user
     else
       render json: @user.errors, status: :unprocessable_entity

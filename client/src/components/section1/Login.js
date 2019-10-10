@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import login from './login.css'
+
 const Login = (props) => {
   return (
-    <div className='UserLogin'>
-      <div className='Heading'>
+    <div className='userlogin'>
+      <div className='heading'>
         <h1>Login</h1>
       </div>
       <form

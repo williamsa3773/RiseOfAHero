@@ -3,8 +3,7 @@ class HerosController < ApplicationController
 
   # GET /heros
   def index
-    @heros = User.find(params[:user_id])
-    @heros = @hero.heros
+    @heros = Hero.all
 
     render json: @heros
   end

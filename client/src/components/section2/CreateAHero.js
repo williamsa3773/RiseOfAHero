@@ -1,25 +1,19 @@
 import React from 'react'
 import createahero from './createahero.css'
 
-const CreateAHero = () => {
+const CreateAHero = (props) => {
   return (
     <>
       <div className='create'>
+      {props.currentUser && props.currentUser.heros.map((hero) => (
         <div className='heroes'>
-          <div className='portait'>
+          <div
+          className='portrait'
+          onClick={() => props.handleSelect(hero)}>
           </div>
-          <button>Select</button>
+          <button>Delete</button>
         </div>
-        <div className='heroes1'>
-          <div className='portait1'>
-          </div>
-          <button>Select</button>
-        </div>
-        <div className='heroes2'>
-          <div className='portait2'>
-          </div>
-          <button>Select</button>
-        </div>
+      ))}
       </div>
     </>
   )

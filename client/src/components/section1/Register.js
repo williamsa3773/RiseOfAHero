@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import register from './register.css'
+
 const Register = (props) => {
   return (
-    <div className='UserRegister'>
+    <div className='userregister'>
       <div className='Heading'>
         <h1>Register</h1>
       </div>

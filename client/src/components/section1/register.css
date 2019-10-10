@@ -1,0 +1,6 @@
+.userregister {
+  background-color: #3c4245;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
