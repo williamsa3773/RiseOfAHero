@@ -2,14 +2,16 @@
   display: grid;
   grid-template-columns: 35% 65% ;
   grid-template-rows: 10vh 80vh 10vh;
-  background-color: #3c4245;
+  /* background-color: #3c4245; */
+  background-image: url("https://i.imgur.com/IXFrrLp.png");
+  background-size: cover;
 }
 
 
  .right-panel {
    grid-column: 2/3;
    grid-row: 2/3;
-   background-color: #719192;
+   background-color: rgba(60, 66, 69, .2);
    border-left: 2px solid black;
    border-top: 2px solid black;
    border-bottom: 2px solid black;
@@ -18,7 +20,7 @@
  .left-panel {
    grid-column: 1/2;
    grid-row: 2/3;
-   background-color: #5f6769;
+   background-color: rgba(60, 66, 69, .2);
    border-right: 2px solid black;
    border-top: 2px solid black;
    border-bottom: 2px solid black;

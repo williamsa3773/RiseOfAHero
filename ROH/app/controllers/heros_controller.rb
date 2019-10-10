@@ -4,13 +4,11 @@ class HerosController < ApplicationController
   # GET /heros
   def index
     @heros = Hero.all
-
     render json: @heros
   end
 
   # GET /heros/1
   def show
-
     render json: @hero
   end
 
@@ -47,6 +45,6 @@ class HerosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def hero_params
-      params.require(:hero).permit(:images, :user_id, :name, :level, :exp, :str, :dex, :kno, :cha, :vit, :def)
+      params.require(:hero).permit(:images, :user_id, :name, :level, :exp, :str, :dex, :kno, :cha, :vit, :def, :skill_point)
     end
 end

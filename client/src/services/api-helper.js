@@ -29,3 +29,8 @@ export const verifyUser = async () => {
   }
   return false
 }
+
+export const updateHero = async (hero_id) => {
+  const resp = await api.put(`heros/${hero_id}`)
+  return resp.data
+}
