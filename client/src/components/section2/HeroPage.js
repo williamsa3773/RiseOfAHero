@@ -107,7 +107,7 @@ const HeroPage = (props) => {
 
   return (
     <div className='heropage'>
-        <h1 className='head'> Welcome {props.currentUser && props.currentUser.username}</h1>
+        <h1 className='head'> Welcome {props.currentUser && props.currentUser.username} :) :) :) :) :)</h1>
         <div className='right-panel'>
           <CreateAHero
           currentUser={props.currentUser}

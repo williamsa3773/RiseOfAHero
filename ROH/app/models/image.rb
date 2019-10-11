@@ -1,3 +1,3 @@
 class Image < ApplicationRecord
-  belong_to :heros
+  belongs_to :hero
 end

@@ -16819,3 +16819,34 @@ Processing by AuthenticationController#verify as HTML
 Completed 200 OK in 14ms (Views: 5.3ms | ActiveRecord: 6.0ms | Allocations: 2204)
 
 
+Started POST "/auth/login" for ::1 at 2019-10-11 13:19:43 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "authentication"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 2.0ms | Allocations: 2767)
+
+
+  
+NoMethodError (undefined method `authenticate' for nil:NilClass):
+  
+app/controllers/authentication_controller.rb:7:in `login'
+Started POST "/auth/login" for ::1 at 2019-10-11 13:19:47 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"username"=>"tree", "email"=>"", "password"=>"[FILTERED]", "authentication"=>{"username"=>"tree", "email"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tree"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/authentication_controller.rb:9:in `login'
+Completed 200 OK in 281ms (Views: 20.6ms | ActiveRecord: 0.9ms | Allocations: 15314)
+
+
+Started GET "/auth/verify" for ::1 at 2019-10-11 13:21:59 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/authentication_controller.rb:23:in `verify'
+Completed 200 OK in 14ms (Views: 7.1ms | ActiveRecord: 1.1ms | Allocations: 2309)
+
+
