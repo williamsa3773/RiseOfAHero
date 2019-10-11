@@ -15,7 +15,7 @@ const Register = (props) => {
         <input name='email' type='text' placeholder='EMAIL' value={props.formData.email} onChange={props.handleChange}
         />
         <input
-        name='password' type='text' placeholder='PASSWORD' value={props.formData.password} onChange={props.handleChange}
+        name='password' type='password' placeholder='PASSWORD' value={props.formData.password} onChange={props.handleChange}
         />
           <button>REGISTER</button>
       </form>

@@ -30,7 +30,17 @@ export const verifyUser = async () => {
   return false
 }
 
-export const updateHero = async (hero_id) => {
-  const resp = await api.put(`heros/${hero_id}`)
+export const updateHero = async (id, data) => {
+  const resp = await api.put(`heros/${id}`, data)
+  return resp.data
+}
+
+export const deleteHero = async (id) => {
+  const resp = await api.delete(`/heros/${id}`)
+  return resp.data
+}
+
+export const createHero = async () => {
+  const resp = await api.post('/heros')
   return resp.data
 }

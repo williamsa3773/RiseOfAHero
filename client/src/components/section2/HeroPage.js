@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import CreateAHero from './CreateAHero'
 import LoadAHero from './LoadAHero'
 import { Link } from 'react-router-dom'
+import { updateHero, deleteHero, createHero } from '../../services/api-helper'
 import heropage from './heropage.css'
 
 const HeroPage = (props) => {
@@ -15,9 +16,14 @@ const HeroPage = (props) => {
     cha: 16,
     vit: 16,
     def: 17,
-    user: null,
     skill_point: 99+5,
   })
+
+  useEffect(() => {
+    if (!currentHero.id && props.currentUser) {
+      setCurrentHero(props.currentUser.heros[0])
+    }
+  }, [props.currentUser]);
 
   const handleSelect = (hero) => {
     setCurrentHero(hero)
@@ -27,60 +33,77 @@ const HeroPage = (props) => {
     e.preventDefault()
     //increase
     if (currentHero.skill_point > 0) {
+      console.log(currentHero.id)
       if (e.target.name === 'vitUp') {
-        currentHero.skill_point -= 1
-        currentHero.vit += 1
+        setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point - 1}))
+        setCurrentHero(currentHero => ({...currentHero, vit: currentHero.vit + 1}))
       }
       if (e.target.name === 'defUp') {
-          currentHero.skill_point -= 1
-          currentHero.def += 1
+        setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point - 1}))
+        setCurrentHero(currentHero => ({...currentHero, def: currentHero.def + 1}))
         }
       if (e.target.name === 'chaUp') {
-          currentHero.skill_point -= 1
-          currentHero.cha += 1
+        setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point - 1}))
+        setCurrentHero(currentHero => ({...currentHero, cha: currentHero.cha + 1}))
       }
       if (e.target.name === 'strUp') {
-          currentHero.skill_point -= 1
-          currentHero.str += 1
+        setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point - 1}))
+        setCurrentHero(currentHero => ({...currentHero, str: currentHero.str + 1}))
       }
       if (e.target.name === 'dexUp') {
-          currentHero.skill_point -= 1
-          currentHero.dex += 1
+        setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point - 1}))
+        setCurrentHero(currentHero => ({...currentHero, dex: currentHero.dex + 1}))
       }
       if (e.target.name === 'knoUp') {
-          currentHero.skill_point -= 1
-          currentHero.kno += 1
+        setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point - 1}))
+        setCurrentHero(currentHero => ({...currentHero, kno: currentHero.kno + 1}))
       }
     }
     //decrease
-    if (currentHero.vit || currentHero.vit || currentHero.vit || currentHero.vit || currentHero.vit || currentHero.vit > 1) {
+    if (currentHero.vit > 1 || currentHero.def > 1 || currentHero.cha > 1 || currentHero.str > 1 || currentHero.dex > 1 || currentHero.kno > 1) {
       if (e.target.name === 'vitDown') {
-          currentHero.skill_point += 1
-          currentHero.vit -= 1
+        setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point + 1}))
+        setCurrentHero(currentHero => ({...currentHero, vit: currentHero.vit - 1}))
       }
       if (e.target.name === 'defDown') {
-          currentHero.skill_point += 1
-          currentHero.def -= 1
+        setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point + 1}))
+        setCurrentHero(currentHero => ({...currentHero, def: currentHero.def - 1}))
       }
       if (e.target.name === 'chaDown') {
-          currentHero.skill_point += 1
-          currentHero.cha -= 1
+        setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point + 1}))
+        setCurrentHero(currentHero => ({...currentHero, cha: currentHero.cha - 1}))
       }
       if (e.target.name === 'strDown') {
-        currentHero.skill_point += 1
-        currentHero.str -= 1
+        setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point + 1}))
+        setCurrentHero(currentHero => ({...currentHero, str: currentHero.str - 1}))
       }
       if (e.target.name === 'dexDown') {
-        currentHero.skill_point += 1
-        currentHero.dex -= 1
+        setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point + 1}))
+        setCurrentHero(currentHero => ({...currentHero, dex: currentHero.dex - 1}))
       }
       if (e.target.name === 'knoDown') {
-        currentHero.skill_point += 1
-        currentHero.kno -= 1
+        setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point + 1}))
+        setCurrentHero(currentHero => ({...currentHero, kno: currentHero.kno - 1}))
       }
     }
   }
 
+  const handleUpdate = async () => {
+    const { updated_at, created_at, id, images_id, ...hero } = currentHero;
+    const updatedHero = await updateHero(id, { hero })
+    setCurrentHero(updatedHero)
+  }
+
+  const handleCreate = async (id) => {
+    const createdHero = await createHero();
+    setCurrentHero(createdHero);
+    props.setCurrentUser({ ...props.currentUser, heros: props.currentUser.heros.map((hero) => hero.id === id ? createdHero : hero)});
+  }
+
+  const handleDelete = async (id) => {
+    const deletedHero = await deleteHero(id);
+    await handleCreate(id);
+  }
 
   return (
     <div className='heropage'>
@@ -89,6 +112,8 @@ const HeroPage = (props) => {
           <CreateAHero
           currentUser={props.currentUser}
           handleSelect={handleSelect}
+          onClick={handleClick}
+          handleDelete={handleDelete}
           />
         </div>
         <div className='left-panel'>
@@ -96,6 +121,7 @@ const HeroPage = (props) => {
           currentUser={props.currentUser}
           currentHero={currentHero}
           onClick={handleClick}
+          handleUpdate={handleUpdate}
           />
         </div>
       <div className='foot'>

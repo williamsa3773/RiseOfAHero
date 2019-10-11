@@ -11,7 +11,10 @@ const CreateAHero = (props) => {
           className='portrait'
           onClick={() => props.handleSelect(hero)}>
           </div>
-          <button>Delete</button>
+          <button
+          name='delete'
+          onClick={() => props.handleDelete(hero.id)}
+          >Delete</button>
         </div>
       ))}
       </div>

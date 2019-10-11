@@ -14,7 +14,7 @@ const Login = (props) => {
         props.handleLogin()}}
         >
         <input name='username' type='text' placeholder='USERNAME' value={props.formData.username} onChange={props.handleChange} />
-        <input name='password' type='text' placeholder='PASSWORD' value={props.formData.password} onChange={props.handleChange} />
+        <input name='password' type='password' placeholder='PASSWORD' value={props.formData.password} onChange={props.handleChange} />
         <button>LOGIN</button>
       </form>
       <p>Need an Account?</p>

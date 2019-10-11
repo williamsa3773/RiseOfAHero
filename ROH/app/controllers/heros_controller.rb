@@ -1,5 +1,6 @@
 class HerosController < ApplicationController
   before_action :set_hero, only: [:show, :update, :destroy]
+  before_action :authorize_request
 
   # GET /heros
   def index
@@ -14,10 +15,22 @@ class HerosController < ApplicationController
 
   # POST /heros
   def create
-    @hero = Hero.new(hero_params)
+    @hero = Hero.new(
+      name: "NewHero",
+      level: 1,
+      exp: 0,
+      str: 1,
+      dex: 1,
+      kno: 1,
+      cha: 1,
+      vit: 1,
+      def: 1,
+      skill_point: 7,
+      user: @current_user
+    )
 
     if @hero.save
-      render json: @hero, status: :created, location: @hero
+      render json: @hero, status: :created
     else
       render json: @hero.errors, status: :unprocessable_entity
     end
@@ -25,7 +38,9 @@ class HerosController < ApplicationController
 
   # PATCH/PUT /heros/1
   def update
-    if @hero.update(hero_params)
+    puts hero_params
+    puts @hero
+    if @hero.update!(hero_params)
       render json: @hero
     else
       render json: @hero.errors, status: :unprocessable_entity

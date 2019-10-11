@@ -20,7 +20,7 @@ class User < ApplicationRecord
       vit: 1,
       def: 1,
       user: self,
-      skill_point: 5,
+      skill_point: 7,
     )
   end
 
@@ -36,7 +36,7 @@ class User < ApplicationRecord
       vit: 1,
       def: 1,
       user: self,
-      skill_point: 5,
+      skill_point: 7,
     )
   end
 
@@ -52,7 +52,7 @@ class User < ApplicationRecord
       vit: 1,
       def: 1,
       user: self,
-      skill_point: 5,
+      skill_point: 7,
     )
   end
 end

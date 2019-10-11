@@ -5,7 +5,7 @@ const LoadAHero = (props) => {
   return (
     <>
         <div className='load'>
-          <h1 className='name'>{props.currentHero.name}</h1>
+          <input name='name' type='text' placeholder={props.currentHero.name}></input>
           <div className='stats'>
             <p className='level'>Lvl: {props.currentHero.level}</p>
             <p className='exp'> {props.currentHero.exp} :Exp</p>
@@ -78,7 +78,10 @@ const LoadAHero = (props) => {
             </div>
           </div>
           <div className='update'>
-            <button>Save</button>
+            <button
+            name='update'
+            onClick={props.handleUpdate}
+            >Save</button>
           </div>
         </div>
     </>

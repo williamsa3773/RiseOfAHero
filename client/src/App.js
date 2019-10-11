@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter, Link, Route, Switch, Redirect } from 'react-router-dom';
-import { loginUser, registerUser, verifyUser} from './services/api-helper'
+import { loginUser, registerUser, verifyUser, updateHero} from './services/api-helper'
 import Login from './components/section1/Login'
 import Register from './components/section1/Register'
 import HeroPage from './components/section2/HeroPage'
@@ -70,6 +70,7 @@ const App = (props) => {
           <HeroPage
           handleLogout={handleLogout}
           currentUser={currentUser}
+          setCurrentUser={setCurrentUser}
           />
         )} />
         <Redirect from="/" to="/login" />
