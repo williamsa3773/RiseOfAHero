@@ -83,6 +83,11 @@ const LoadAHero = (props) => {
             onClick={props.handleUpdate}
             >Save</button>
           </div>
+          <div className='arena'>
+            <button
+            name='arena'
+            >Enter Arena</button>
+          </div>
         </div>
     </>
   )

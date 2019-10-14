@@ -60,31 +60,29 @@ const HeroPage = (props) => {
       }
     }
     //decrease
-    if (currentHero.vit > 1 || currentHero.def > 1 || currentHero.cha > 1 || currentHero.str > 1 || currentHero.dex > 1 || currentHero.kno > 1) {
-      if (e.target.name === 'vitDown') {
-        setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point + 1}))
-        setCurrentHero(currentHero => ({...currentHero, vit: currentHero.vit - 1}))
-      }
-      if (e.target.name === 'defDown') {
-        setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point + 1}))
-        setCurrentHero(currentHero => ({...currentHero, def: currentHero.def - 1}))
-      }
-      if (e.target.name === 'chaDown') {
-        setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point + 1}))
-        setCurrentHero(currentHero => ({...currentHero, cha: currentHero.cha - 1}))
-      }
-      if (e.target.name === 'strDown') {
-        setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point + 1}))
-        setCurrentHero(currentHero => ({...currentHero, str: currentHero.str - 1}))
-      }
-      if (e.target.name === 'dexDown') {
-        setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point + 1}))
-        setCurrentHero(currentHero => ({...currentHero, dex: currentHero.dex - 1}))
-      }
-      if (e.target.name === 'knoDown') {
-        setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point + 1}))
-        setCurrentHero(currentHero => ({...currentHero, kno: currentHero.kno - 1}))
-      }
+    if (e.target.name === 'vitDown' && currentHero.vit > 1 ) {
+      setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point + 1}))
+      setCurrentHero(currentHero => ({...currentHero, vit: currentHero.vit - 1}))
+    }
+    if (e.target.name === 'defDown' && currentHero.def > 1) {
+      setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point + 1}))
+      setCurrentHero(currentHero => ({...currentHero, def: currentHero.def - 1}))
+    }
+    if (e.target.name === 'chaDown' && currentHero.cha > 1 ) {
+      setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point + 1}))
+      setCurrentHero(currentHero => ({...currentHero, cha: currentHero.cha - 1}))
+    }
+    if (e.target.name === 'strDown' && currentHero.str > 1 ) {
+      setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point + 1}))
+      setCurrentHero(currentHero => ({...currentHero, str: currentHero.str - 1}))
+    }
+    if (e.target.name === 'dexDown' && currentHero.dex> 1) {
+      setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point + 1}))
+      setCurrentHero(currentHero => ({...currentHero, dex: currentHero.dex - 1}))
+    }
+    if (e.target.name === 'knoDown' && currentHero.kno > 1) {
+      setCurrentHero(currentHero => ({...currentHero, skill_point: currentHero.skill_point + 1}))
+      setCurrentHero(currentHero => ({...currentHero, kno: currentHero.kno - 1}))
     }
   }
 
@@ -107,7 +105,7 @@ const HeroPage = (props) => {
 
   return (
     <div className='heropage'>
-        <h1 className='head'> Welcome {props.currentUser && props.currentUser.username} :) :) :) :) :)</h1>
+        <h1 className='head'> Welcome {props.currentUser && props.currentUser.username}</h1>
         <div className='right-panel'>
           <CreateAHero
           currentUser={props.currentUser}
