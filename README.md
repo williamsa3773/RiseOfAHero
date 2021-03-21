@@ -1,3 +1,7 @@
+#Archiving due to aged technology, will be rebuilding with updated formats and enchanced features. 
+
+
+
 # CharacterCreator
 # Project Overview
 
